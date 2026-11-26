@@ -12,8 +12,6 @@ public class SceneRepository {
 
     public SceneRepository() {
         scenes.add(new Scene("La Grande Scène", 8000, "en plein air, face au port."));
-        scenes.add(new Scene("La Scène du Port",600, "au bord de l'eau, pour les concerts intimistes."));
-        scenes.add(new Scene("La Grande Scène",8000, "en plein air, face au port."));
         scenes.add(new Scene("Le Chapiteau", 2000, "sous toile, pour les soirées tardives."));
         scenes.add(new Scene("La Scène du Port", 600, "au bord de l'eau, pour les concerts intimistes."));
     }

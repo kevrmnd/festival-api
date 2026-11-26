@@ -1,18 +1,12 @@
 package com.ada.festival.repository;
 
-// Un genre a un nom et une description.
-
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-// Rock	guitares électriques, batterie, énergie
-// Folk	guitares acoustiques, chansons qui racontent
-// Jazz	improvisation, cuivres, swing
-// Soul	voix puissantes, héritée du gospel
-// Hip-hop	rythme et paroles, le rap
-// Électro	musique électronique, faite pour danser
+import com.ada.festival.model.Artiste;
+
 @Repository
 public class GenreRepository {
     private final List<Genre> genres = new ArrayList<>();

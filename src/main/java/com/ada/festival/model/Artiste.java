@@ -1,17 +1,17 @@
 package com.ada.festival.model;
 
 public class Artiste {
-    private final String name;
+    private final String nom;
     private final String jour;
     private final String heure;
 
-    public Artiste(String name, String jour, String heure) {
-        this.name = name;
+    public Artiste(String nom, String jour, String heure) {
+        this.nom = nom;
         this.jour = jour;
         this.heure = heure;
     }
 
-    public String getName() { return name; }
+    public String getName() { return nom; }
     public String getJour() { return jour; }
     public String getHeure() { return heure; }
 }

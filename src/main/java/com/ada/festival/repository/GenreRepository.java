@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ada.festival.model.Artiste;
+import com.ada.festival.model.Genre;
 
 @Repository
 public class GenreRepository {

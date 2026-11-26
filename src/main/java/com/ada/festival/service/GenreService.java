@@ -17,10 +17,10 @@ public class GenreService {
 
     public List<Genre> findAll(){ return genreRepository.findAll();}
 
-    public List<Genre> findByName(String text){
+    public List<Genre> findByNom(String text){
         List<Genre> result = new ArrayList<>();
         for (Genre genre : genreRepository.findAll()){
-            if (genre.getName().toLowerCase().contains(text.toLowerCase())){
+            if (genre.getNom().toLowerCase().contains(text.toLowerCase())){
                 result.add(genre);
             }
         }

@@ -26,7 +26,7 @@ public class ArtisteRepository {
     //     heroes.remove(hero);
     // }
     
-    // public void create(Hero hero){
-    //     heroes.add(hero);
-    // }
+    public void create(Artiste artiste){
+        artistes.add(artiste);
+    }
 }

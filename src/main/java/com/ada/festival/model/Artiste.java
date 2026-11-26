@@ -11,7 +11,7 @@ public class Artiste {
         this.heure = heure;
     }
 
-    public String getName() { return nom; }
+    public String getNom() { return nom; }
     public String getJour() { return jour; }
     public String getHeure() { return heure; }
 }

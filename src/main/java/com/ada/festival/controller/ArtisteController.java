@@ -1,8 +1,13 @@
 package com.ada.festival.controller;
 
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,15 +22,32 @@ public class ArtisteController {
         this.service = service;
     }
     
-    @GetMapping("/artists")
-    public List<Artiste> getArtistes(
+    @GetMapping("/artistes")
+    public ResponseEntity<Object> getArtistes(
         @RequestParam(required = false) String nom,
         @RequestParam(required = false) String jour,
         @RequestParam(required = false) String genre
     ) {
-        // if (name != null && role != null) return service.findByNameAndRole(name, role);
-        if (nom != null) return service.findByName(nom);
-        if (jour != null) return service.findByJour(jour);
-        return service.findAll();
+        List<Artiste> artistes;
+
+        if (nom != null) {
+            artistes = service.findByNom(nom);
+        } else if (jour != null) {
+            artistes = service.findByJour(jour);
+        } else {
+            artistes = service.findAll();
+        }
+
+        if (artistes.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Map.of("error", "Aucun artiste ne correspond à votre recherche"));
+        }
+        return ResponseEntity.ok(artistes);
+    }
+
+    @PostMapping("/artistes")
+    public ResponseEntity<Artiste> create(@RequestBody Artiste artiste){
+        service.create(artiste);
+        return ResponseEntity.status(HttpStatus.CREATED).body(artiste);
     }
 }

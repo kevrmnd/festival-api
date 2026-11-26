@@ -9,6 +9,6 @@ public class Genre {
         this.description = description;
     }
 
-    public String getName(){ return nom; }
+    public String getNom(){ return nom; }
     public String getDescription(){ return description; }
 }

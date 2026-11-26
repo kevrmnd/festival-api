@@ -11,7 +11,7 @@ public class Scene {
         this.description = description;
     }
 
-    public String getName() { return nom; }
+    public String getNom() { return nom; }
     public int getCapacite() { return capacite; }
     public String getDescription() { return description; }
 }

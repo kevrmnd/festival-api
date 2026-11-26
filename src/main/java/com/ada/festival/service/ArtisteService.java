@@ -20,10 +20,10 @@ public class ArtisteService {
         return artisteRepository.findAll();
     }
 
-    public List<Artiste> findByName(String text) {
+    public List<Artiste> findByNom(String text) {
         List<Artiste> result = new ArrayList<>();
         for (Artiste artiste : artisteRepository.findAll()) {
-            if (artiste.getName().toLowerCase().contains(text.toLowerCase())) {
+            if (artiste.getNom().toLowerCase().contains(text.toLowerCase())) {
                 result.add(artiste);
             }
         }
@@ -38,5 +38,9 @@ public class ArtisteService {
             }
         }
         return result;
+    }
+
+    public void create(Artiste artiste){
+        artisteRepository.create(artiste);
     }
 }

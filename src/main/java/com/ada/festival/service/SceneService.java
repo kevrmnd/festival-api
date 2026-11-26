@@ -19,10 +19,10 @@ public class SceneService {
         return sceneRepository.findAll();
     }
 
-    public List<Scene> findByName(String text) {
+    public List<Scene> findByNom(String text) {
         List<Scene> result = new ArrayList<>();
         for (Scene scene : sceneRepository.findAll()) {
-            if (scene.getName().toLowerCase().contains(text.toLowerCase())) {
+            if (scene.getNom().toLowerCase().contains(text.toLowerCase())) {
                 result.add(scene);
             }
         }

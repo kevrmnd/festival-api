@@ -22,9 +22,9 @@ public class ArtisteRepository {
         return artistes;
     }
 
-    // public void delete(Hero hero) {
-    //     heroes.remove(hero);
-    // }
+    public void delete(Artiste artiste) {
+        artistes.remove(artiste);
+    }
     
     public void create(Artiste artiste){
         artistes.add(artiste);

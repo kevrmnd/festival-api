@@ -5,8 +5,11 @@ import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,5 +52,30 @@ public class ArtisteController {
     public ResponseEntity<Artiste> create(@RequestBody Artiste artiste){
         service.create(artiste);
         return ResponseEntity.status(HttpStatus.CREATED).body(artiste);
+    }
+
+    @PutMapping("/artistes/{nom}")
+    public ResponseEntity<?> modify(
+        @PathVariable String nom,
+        @RequestBody Artiste artiste
+    ){
+        Artiste artisteAModifier = service.findOneByNom(nom);
+        if(artisteAModifier == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "Artiste introuvable"));
+        }
+        service.modify(artisteAModifier, artiste);
+        return ResponseEntity.status(HttpStatus.OK).body(artiste);
+    }
+
+    @DeleteMapping("/artistes/{nom}")
+    public ResponseEntity<?> deleteArtiste(
+        @PathVariable String nom
+    ) {
+        Artiste artisteASupprimer = service.findOneByNom(nom);
+        if(artisteASupprimer == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "Artiste introuvable"));
+        }
+        service.delete(artisteASupprimer);
+        return ResponseEntity.noContent().build();
     }
 }

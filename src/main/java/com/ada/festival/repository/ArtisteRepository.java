@@ -3,6 +3,7 @@ package com.ada.festival.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ada.festival.model.Artiste;
 import org.springframework.stereotype.Repository;
 
 // Un artiste a un nom, un jour, une heure de passage, une scène et une liste de genres.

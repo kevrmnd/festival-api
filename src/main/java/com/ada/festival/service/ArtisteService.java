@@ -29,4 +29,14 @@ public class ArtisteService {
         }
         return result;
     }
+
+    public List<Artiste> findByJour(String text) {
+        List<Artiste> result = new ArrayList<>();
+        for (Artiste artiste : artisteRepository.findAll()) {
+            if (artiste.getJour().toLowerCase().contains(text.toLowerCase())) {
+                result.add(artiste);
+            }
+        }
+        return result;
+    }
 }

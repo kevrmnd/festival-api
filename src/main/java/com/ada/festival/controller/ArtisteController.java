@@ -19,12 +19,13 @@ public class ArtisteController {
     
     @GetMapping("/artists")
     public List<Artiste> getArtistes(
-        @RequestParam(required = false) String nom
-        // @RequestParam(required = false) String role
+        @RequestParam(required = false) String nom,
+        @RequestParam(required = false) String jour,
+        @RequestParam(required = false) String genre
     ) {
         // if (name != null && role != null) return service.findByNameAndRole(name, role);
         if (nom != null) return service.findByName(nom);
-        // if (role != null) return service.findByRole(role);
+        if (jour != null) return service.findByJour(jour);
         return service.findAll();
     }
 }

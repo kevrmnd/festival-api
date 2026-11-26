@@ -1,34 +1,32 @@
-// package com.ada.festival.service;
+package com.ada.festival.service;
 
-// import com.ada.festival.repository.ArtisteRepository;
+import java.util.ArrayList;
+import java.util.List;
 
-// @Service
-// public class ArtisteService {
-//     private final ArtisteRepository artisteRepository;
+import org.springframework.stereotype.Service;
 
+import com.ada.festival.model.Artiste;
+import com.ada.festival.repository.ArtisteRepository;
 
-// }
+@Service
+public class ArtisteService {
+    private final ArtisteRepository artisteRepository;
 
-// @Service 
-// public class HeroService {
-//     private final HeroRepository heroRepository;
-//     private final RoleService roleService;
+    public ArtisteService(ArtisteRepository artisteRepository) {
+        this.artisteRepository = artisteRepository;
+    }
 
-//     public HeroService(HeroRepository heroRepository, RoleService roleService) {
-//         this.heroRepository = heroRepository;
-//         this.roleService = roleService;
-//     }
+    public List<Artiste> findAll() {
+        return artisteRepository.findAll();
+    }
 
-//     public List<Hero> findAll() {
-//         return heroRepository.findAll();
-//     }
-
-//     public List<Hero> findByName(String text) {
-//         List<Hero> result = new ArrayList<>();
-//         for (Hero hero : heroRepository.findAll()) {
-//             if (hero.getName().toLowerCase().contains(text.toLowerCase())) {
-//                 result.add(hero);
-//             }
-//         }
-//         return result;
-//     }
+    public List<Artiste> findByName(String text) {
+        List<Artiste> result = new ArrayList<>();
+        for (Artiste artiste : artisteRepository.findAll()) {
+            if (artiste.getName().toLowerCase().contains(text.toLowerCase())) {
+                result.add(artiste);
+            }
+        }
+        return result;
+    }
+}

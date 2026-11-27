@@ -19,4 +19,12 @@ public class SceneRepository {
     public List<Scene> findAll() {
         return scenes;
     }
+        
+    public void delete(Scene scene) {
+        scenes.remove(scene);
+    }
+
+    public void create(Scene scene){
+        scenes.add(scene);
+    }
 }

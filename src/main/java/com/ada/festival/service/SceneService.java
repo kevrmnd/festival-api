@@ -1,5 +1,6 @@
 package com.ada.festival.service;
 
+import com.ada.festival.dto.SceneRequest;
 import com.ada.festival.model.Scene;
 import com.ada.festival.repository.SceneRepository;
 import org.springframework.stereotype.Service;
@@ -28,4 +29,26 @@ public class SceneService {
         }
         return result;
     }
+    
+    public Scene findOneByNom(String text) {
+        for (Scene scene : sceneRepository.findAll()) {
+            if (scene.getNom().toLowerCase().contains(text.toLowerCase())) {
+                return scene;
+            }
+        }
+        return null;
+    }
+    
+    public void create(Scene scene){
+        sceneRepository.create(scene);
+    }    
+
+    public void modify(Scene sceneAModifier, SceneRequest request){
+        sceneAModifier.setCapacite(request.capacite());
+        sceneAModifier.setDescription(request.description());
+    }
+
+    public void delete(Scene scene){
+        sceneRepository.delete(scene);
+    }  
 }

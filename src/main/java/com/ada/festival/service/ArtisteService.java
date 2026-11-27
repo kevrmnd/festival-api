@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ada.festival.dto.ArtisteRequest;
 import com.ada.festival.model.Artiste;
 import com.ada.festival.repository.ArtisteRepository;
 
@@ -57,8 +58,8 @@ public class ArtisteService {
         artisteRepository.delete(artiste);
     }    
 
-    public void modify(Artiste artisteAModifier, Artiste artiste){
-        artisteAModifier.setJour(artiste.getJour());
-        artisteAModifier.setHeure(artiste.getHeure());
+    public void modify(Artiste artisteAModifier, ArtisteRequest request){
+        artisteAModifier.setJour(request.jour());
+        artisteAModifier.setHeure(request.heure());
     }
 }

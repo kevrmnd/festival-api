@@ -11,13 +11,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ada.festival.dto.ArtisteRequest;
 import com.ada.festival.model.Artiste;
 import com.ada.festival.service.ArtisteService;
 
-@RestController 
+@RestController
+@RequestMapping("/artistes") 
 public class ArtisteController {
     private final ArtisteService service;
     
@@ -25,7 +28,7 @@ public class ArtisteController {
         this.service = service;
     }
     
-    @GetMapping("/artistes")
+    @GetMapping
     public ResponseEntity<Object> getArtistes(
         @RequestParam(required = false) String nom,
         @RequestParam(required = false) String jour,
@@ -48,26 +51,26 @@ public class ArtisteController {
         return ResponseEntity.ok(artistes);
     }
 
-    @PostMapping("/artistes")
+    @PostMapping
     public ResponseEntity<Artiste> create(@RequestBody Artiste artiste){
         service.create(artiste);
         return ResponseEntity.status(HttpStatus.CREATED).body(artiste);
     }
 
-    @PutMapping("/artistes/{nom}")
+    @PutMapping("/{nom}")
     public ResponseEntity<?> modify(
         @PathVariable String nom,
-        @RequestBody Artiste artiste
+        @RequestBody ArtisteRequest request
     ){
         Artiste artisteAModifier = service.findOneByNom(nom);
         if(artisteAModifier == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "Artiste introuvable"));
         }
-        service.modify(artisteAModifier, artiste);
-        return ResponseEntity.status(HttpStatus.OK).body(artiste);
+        service.modify(artisteAModifier, request);
+        return ResponseEntity.status(HttpStatus.OK).body(artisteAModifier);
     }
 
-    @DeleteMapping("/artistes/{nom}")
+    @DeleteMapping("/{nom}")
     public ResponseEntity<?> deleteArtiste(
         @PathVariable String nom
     ) {

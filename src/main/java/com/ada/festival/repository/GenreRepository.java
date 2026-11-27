@@ -19,6 +19,14 @@ public class GenreRepository {
         genres.add(new Genre ("Hip-hop", "rythme et paroles, le rap"));
         genres.add(new Genre ("Electro", "musique électronique, faite pour danser"));
     }
+
     public List<Genre> findAll(){ return genres; }
     
+    public void delete(Genre genre) {
+        genres.remove(genre);
+    }
+    
+    public void create(Genre genre){
+        genres.add(genre);
+    }
 }

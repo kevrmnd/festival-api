@@ -11,11 +11,11 @@ public class ArtisteRepository {
     private final List<Artiste> artistes = new ArrayList<>();
     
     public ArtisteRepository() {
-        artistes.add(new Artiste("Les Marées Hautes", "vendredi", "21h"));
-        artistes.add(new Artiste("Nina Sol", "vendredi", "19h"));
-        artistes.add(new Artiste("Kryptik", "samedi", "21h"));
-        artistes.add(new Artiste("DJ Lumen", "samedi", "23h"));
-        artistes.add(new Artiste("Les Bricoleuses", "dimanche", "18h"));
+        artistes.add(new Artiste(1, "Les Marées Hautes", "vendredi", "21h", 1, 1));
+        artistes.add(new Artiste(2, "Nina Sol", "vendredi", "19h", 2, 1));
+        artistes.add(new Artiste(3, "Kryptik", "samedi", "21h", 6, 2));
+        artistes.add(new Artiste(4, "DJ Lumen", "samedi", "23h", 6, 2));
+        artistes.add(new Artiste(5, "Les Bricoleuses", "dimanche", "18h", 3, 3));
     }    
     
     public List<Artiste> findAll() {

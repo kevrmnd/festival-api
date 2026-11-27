@@ -31,8 +31,7 @@ public class ArtisteController {
     @GetMapping
     public ResponseEntity<Object> getArtistes(
         @RequestParam(required = false) String nom,
-        @RequestParam(required = false) String jour,
-        @RequestParam(required = false) String genre
+        @RequestParam(required = false) String jour
     ) {
         List<Artiste> artistes;
 

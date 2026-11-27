@@ -12,12 +12,12 @@ public class GenreRepository {
     private final List<Genre> genres = new ArrayList<>();
 
     public GenreRepository(){
-        genres.add(new Genre("Rock", "guitares électriques, batterie, énergie"));
-        genres.add(new Genre("Folk", "guitares acoustiques, chansons qui racontent"));
-        genres.add(new Genre("Jazz", "improvisation, cuivres, swing"));
-        genres.add(new Genre ("Soul", "voix puissantes, héritée du gospel"));
-        genres.add(new Genre ("Hip-hop", "rythme et paroles, le rap"));
-        genres.add(new Genre ("Electro", "musique électronique, faite pour danser"));
+        genres.add(new Genre(1, "Rock", "guitares électriques, batterie, énergie"));
+        genres.add(new Genre(2, "Folk", "guitares acoustiques, chansons qui racontent"));
+        genres.add(new Genre(3, "Jazz", "improvisation, cuivres, swing"));
+        genres.add(new Genre (4, "Soul", "voix puissantes, héritée du gospel"));
+        genres.add(new Genre (5, "Hip-hop", "rythme et paroles, le rap"));
+        genres.add(new Genre (6, "Electro", "musique électronique, faite pour danser"));
     }
 
     public List<Genre> findAll(){ return genres; }
